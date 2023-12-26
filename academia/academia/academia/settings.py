@@ -41,10 +41,16 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'core.erp',
 
+    'crispy_forms',
+    'crispy_bootstrap5',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 SITE_ID = 1
 
@@ -125,7 +131,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 
@@ -153,4 +159,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #Configuraciones Adicionales
 
 if DEBUG:
-    EMAIL_BACKEND = 'django.core.email.backends.console.EmailBackend'
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
+LOGIN_REDIRECT_URL = "index"
+
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 7
+
+ACCOUNT_LOGOUT_ON_GET = True

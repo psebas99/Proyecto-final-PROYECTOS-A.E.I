@@ -20,7 +20,8 @@ from core.erp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('academia/',firstview),
+    path('academia/',firstview,name='index'),
+    path('',firstview),
     path('static/',cursosview),
     path('academia/cursos/',cursosview),
     path('academia/cursos/',CursosListView.as_view()),
