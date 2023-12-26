@@ -16,9 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from core.erp.views import firstview
+from core.erp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('academia/', include('core.erp.urls'))
+    path('academia/',firstview),
+    path('static/',cursosview),
+    path('academia/cursos/',cursosview),
+    path('academia/cursos/',CursosListView.as_view()),
+    path('academia/base/',login),
+    path('accounts/', include('allauth.urls')),
 ]
