@@ -68,3 +68,21 @@ class Asignacion(models.Model):
         verbose_name_plural ='Asignaciones'
         db_table = 'Asignacion'
         ordering = ['id']        
+
+
+opciones_consultas = [
+    [0, "Desbloqueo"],
+    [1, "reclamo"],
+    [2, "sugerencia"],
+    [3, "consulta"],
+]
+
+
+class Contacto(models.Model):
+    nombre = models.CharField(max_length=50)
+    correo = models.EmailField()
+    tipo_consulta = models.IntegerField(choices=opciones_consultas)
+    mensaje = models.TextField()
+    def __str__(self):
+        return self.nombre
+    

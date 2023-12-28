@@ -4,3 +4,5 @@ from core.erp.models import *
 
 admin.site.register(Usuario)
 admin.site.register(Cursos)
+admin.site.register(Contacto)
+
