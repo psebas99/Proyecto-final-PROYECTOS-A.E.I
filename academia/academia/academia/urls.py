@@ -17,14 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from core.erp.views import *
+from core.erp.urls import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('academia/',firstview,name='index'),
     path('',firstview),
+    path('',include('core.erp.urls')),
     path('static/',cursosview),
-    path('academia/cursos/',cursosview),
+    path('academia/cursos/',cursosview,name ='cursos'),
+    # path('academia/cursos/',courses),
     path('academia/cursos/',CursosListView.as_view()),
     path('academia/base/',login),
     path('accounts/', include('allauth.urls')),
+    path('accounts/profile/', firstview),
 ]

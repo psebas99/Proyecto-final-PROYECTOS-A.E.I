@@ -1,27 +1,38 @@
 from typing import Any
 from django.shortcuts import render
 from django.http import HttpResponse
-from core.erp.models import Cursos
+from core.erp.models import *
 from django.views.generic import ListView
 
 # Create your views here.
 def firstview(request):
-    return render(request,"index.html")
+    listado = Cursos.objects.all()
+    data = {
+        'Cursos':listado
+    }
+    return render(request,"index.html",data)
 
 
 def cursosview(request):
-    return render(request,"courses.html")
+    listado = Cursos.objects.all()
+    data = {
+        'Cursos':listado
+    }
+    return render(request,"courses.html",data)
+
 
 def login(request):
     return render(request,"base.html")
 
 
-def cursos_list(request):
-    data ={
-        'title': 'Listado de cursos',
-        'cursos': Cursos.objects.all()
-    }
-    return render(request,'courses.html',data)
+# def courses(request):
+#     cursos=Cursos.objects.all()
+#     return render(request,'courses.html',{'cursos': cursos})
+
+
+# def index(request):
+#     cursos = Cursos.objects.all()
+#     return render(request, 'templates/index.html', {'cursos': cursos})
 
 
 class CursosListView(ListView):

@@ -1,12 +1,15 @@
 {% extends "account/base_manage_email.html" %}
+{% load crispy_forms_tags %}
 {% load allauth i18n %}
 {% block head_title %}
     {% trans "Email Addresses" %}
 {% endblock head_title %}
 {% block content %}
+<div class="col-md-4 mx-auto">
     {% element h1 %}
         {% trans "Email Addresses" %}
     {% endelement %}
+
     {% if emailaddresses %}
         <p>{% trans 'The following email addresses are associated with your account:' %}</p>
         {% url 'account_email' as email_url %}
@@ -72,6 +75,7 @@
             {% endslot %}
         {% endelement %}
     {% endif %}
+</div>
 {% endblock content %}
 {% block extra_body %}
     <script type="text/javascript">
