@@ -109,7 +109,7 @@ DATABASES = {
         'NAME' : 'db_academia',
         'USER' : 'postgres',
         'PASSWORD': 'herrera626',
-        'HOST' : 'localhost',
+        'HOST' : 'database-1.c74gsammyzx1.us-east-2.rds.amazonaws.com',
         'PORT' : '5432'
     }
 }
